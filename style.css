@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-front-smoothing: grayscale;
+}
+
+:root {
+  /* 1rem == 10px */
+  font-size: 62.5%;
+
+  /* Colors */
+  --purple-300: #8E87FA;
+  --purple-400: #6D67D0;
+  --purple-500: #6660C8;
+  --gray-100: #C2BFF4;
+  --gray-200: #E7E6FB;
+  --gray-300: #DAD8F7;
+  --cyan-300: #87EBCD;
+  --yellow-300: #F6C833;
+  --white: #FFF;
+}
+
+body {
+  height: 100vh;
+  background: var(--purple-300) url(./assets/background.png) no-repeat center;
+  background-size: cover;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-family: 'Lato', sans-serif;
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  gap: 2.8rem;
+  grid-template:
+    "temperature air sun" 24.4rem
+    "temperature week week" 21.2rem
+    / 4fr 2fr 2fr
+  ;
+}
+
+main section {
+  background-color: var(--purple-400);
+  border-radius: 10px;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  grid-area: temperature;
+  background: url(./assets/temperature-now-bg.png) no-repeat;
+  background-size: contain;
+  padding: 1.2rem;
+}
+
+.weather>img {
+  position: absolute;
+  top: -5.6rem;
+  left: -5.6rem;
+}
+
+.weather .header {
+  margin-top: 2rem;
+  margin-right: 3.2rem;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: .4rem;
+}
+
+.weather .header strong {
+  font-size: 1.4rem;
+  line-height: 1.68rem;
+}
+
+.weather .temperature {
+  flex: 2;
+  margin-top: 6rem;
+}
+
+.weather .temperature .now strong {
+  display: flex;
+  gap: .4rem;
+  font-size: 8rem;
+  line-height: 10.56rem;
+}
+
+.weather .temperature .now sup {
+  color: var(--gray-300);
+  font-size: 2.4rem;
+  line-height: 6.88rem;
+}
+
+.weather .temperature .max-min {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .4rem;
+  color: var(--white);
+}
+
+.weather .temperature .max-min strong {
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.weather .temperature .max-min strong+strong {
+  color: var(--gray-100);
+  font-weight: 500;
+}
+
+.weather .statistics {
+  width: 100%;
+  display: flex;
+  gap: .8rem;
+}
+
+.statistics .wind,
+.statistics .humidity,
+.statistics .rain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: #6660C899;
+  border-radius: 6px;
+  padding: 1.2rem 1.6rem;
+}
+
+.statistics .wind div,
+.statistics .humidity div,
+.statistics .rain div {
+  display: flex;
+  flex-direction: column;
+  color: var(--gray-200);
+  font-size: 1.2rem;
+  line-height: 1.44rem;
+}
+
+.wind div strong,
+.humidity div strong,
+.rain div strong {
+  font-size: 1.8rem;
+  line-height: 2.16rem;
+}
+
+.wind div strong span,
+.humidity div strong span,
+.rain div strong span {
+  color: var(--gray-300);
+  font-size: 1.4rem;
+  line-height: 1.68rem;
+}
+
+.air-quality,
+.sun-time {
+  padding: 1.6rem;
+}
+
+.air-quality {
+  grid-area: air;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.air-quality .header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  color: var(--gray-300);
+  line-height: 1.92rem;
+}
+
+.air-quality .status {
+  text-align: center;
+}
+
+.air-quality .status p {
+  color: var(--cyan-300);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.16rem;
+}
+
+.air-quality .status strong {
+  color: var(--gray-200);
+  font-size: 4rem;
+  line-height: 4.8rem;
+}
+
+.air-quality .info {
+  display: flex;
+  gap: 1.6rem;
+  text-align: center;
+}
+
+.info .info-item p {
+  color: var(--cyan-300);
+  font-size: 1.4rem;
+  line-height: 1.68rem;
+  font-weight: 700;
+}
+
+.info .info-item strong {
+  color: var(--gray-200);
+  font-size: 1.2rem;
+  line-height: 1.44rem;
+}
+
+.sun-time {
+  grid-area: sun;
+}
+
+.week-weather {
+  grid-area: week;
+}
